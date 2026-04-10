@@ -1,0 +1,12 @@
+Loop with Conditions — CrickBuzz Variant	[3 marks]
+
+Write a loop that prints every number from 1 to 2N. But instead of printing the number:
+-	  -  Print  Crick  if the number is divisible by 3
+-	  -  Print  BUZZ  if the number is divisible by 5
+-	  -  Print  CrickBUZZ  if divisible by both 3 and 5
+  -  Otherwise print the number itself.
+
+(a)  Write the loop.  [3 marks]
+(b)  For N = 5 (loop goes 1 to 10), write out the expected output by hand before testing.  [2 marks]
+(c)  Why must the CrickBUZZ condition be checked before Crick and BUZZ individually? What goes wrong if you check Crick first?  [1 mark]
+ 

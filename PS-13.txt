@@ -1,0 +1,22 @@
+Alphabet Patterns
+
+Use character arithmetic instead of stars. In Python, chr(65) = 'A', chr(66) = 'B', and so on. 
+The kth letter of the alphabet is chr(64 + k).
+
+(a)  Alphabet Triangle — Row i prints the first i letters.  [2 marks]
+
+Write the code:
+
+(b)  Alphabet Inverted — Row i prints letters from the ith letter back to A.  [2 marks]
+
+For N = 4:
+A
+BA
+CBA
+DCBA
+
+Write the code:
+
+(c)  What expression gives the kth letter of the alphabet using chr()? 
+Write it here and verify it for k = 1, 3, and 5.  [2 marks]
+ 

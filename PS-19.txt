@@ -1,0 +1,20 @@
+Looping Through a String
+
+
+A string is a sequence of characters. 
+In Python you can loop through a string the same way you loop through a list. Each iteration gives you one character.
+
+word = "Engineering Computing"
+for ch in word:
+    print(ch)
+
+(a)  Write a loop that takes a word (use your own name) and prints each character on a separate line, along with its position number starting from 1.
+Example: '1  H'.  [1 mark]
+
+(b)  Write a loop that counts how many vowels (A, E, I, O, U) are in a given string. 
+Test it on the string 'Engineering' and 'Computing'.  [1 mark]
+
+(c)  Write a loop that builds a new string containing only the consonants from the original string. 
+Print the result.  [1 mark] [Use strings referenced in (b)]
+
+

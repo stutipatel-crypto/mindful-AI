@@ -1,0 +1,12 @@
+Inverted Triangle
+Now flip the triangle upside-down. Row 1 has N stars, row 2 has N-1 stars, and so on down to 1 star on the last row.
+
+For N = 5:
+*****
+****
+***
+**
+
+(a)  Write the nested loop code.  [2 marks]
+(b)  Explain in your own words what changes between the triangle in PS-6
+and this inverted triangle.  [2 marks]

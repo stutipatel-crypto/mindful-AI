@@ -1,0 +1,16 @@
+A1	Counting with a for Loop	[2 marks]
+
+Before writing any code, read this loop carefully and predict what it will print:
+Expected Output:	
+
+for i in range(1, 6):
+    print(i)
+
+(a)  Predict the output — write it without running the code.  [1 mark]
+
+(b)  Now modify the loop so it counts from 1 to N Write the code.  [1 mark]
+ 
+(c)  Change the loop so it counts from N down to 1 (backwards). Write the code.  [1 mark]
+
+(d)  Change the loop so it counts from 1 to N but skips every other number (prints only odd numbers). Write the code.  [1 mark]
+ 

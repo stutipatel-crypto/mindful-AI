@@ -1,0 +1,29 @@
+Zigzag and Wave Patterns
+
+A zigzag pattern alternates the direction of a triangle each row. Even rows go left-to-right, odd rows go right-to-left.
+
+For N = 4:
+*
+**
+***
+****
+***
+**
+*
+
+(a)  The pattern above is an upward triangle followed immediately by a downward triangle. 
+Write the code.  [3 marks]
+
+(b)  Now produce a zigzag where rows alternate between printing stars from the left and printing stars from the right (right-aligned). 
+For N=4 row 2 should look like '  **' and row 3 like '***'.  [2 marks]
+
+For N = 4:
+*
+  **
+***
+    ****
+
+(c)  Explain how you detect whether a row number is even or odd, and how that changes the spacing.  [1 mark]
+
+
+ 

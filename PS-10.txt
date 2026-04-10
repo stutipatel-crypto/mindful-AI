@@ -1,0 +1,18 @@
+Hollow Rectangle
+
+A hollow rectangle prints stars only on the border. Interior cells are spaces. Size is N rows by 2N columns.
+
+For N = 4:
+********
+*      *
+*      *
+********
+
+Hint:	Inside the nested loop, use an if statement to decide whether to print * or a space. 
+Ask: is this cell on the first row, last row, first column, or last column?
+
+(a)  Write the condition that is true only when a cell should be a star (on the border).  [1 mark]
+(b)  Write the complete nested loop code.  [2 marks]
+(c)  Test your condition by hand:
+Is cell (row=2, col=1) a star or a space for N=4? Is cell (row=2, col=4) a star or a space?  [1 mark]
+ 

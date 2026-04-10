@@ -1,0 +1,13 @@
+Centred Pyramid
+
+A centred pyramid adds leading spaces before the stars so the triangle appears centred.
+Row i has (N - i) leading spaces and (2i - 1) stars.
+
+For N = 4:
+   *
+  ***
+ *****
+*******
+
+Write the nested loop code [4 Marks]
+

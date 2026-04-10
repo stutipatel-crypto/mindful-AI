@@ -1,0 +1,7 @@
+Finding the Maximum and Minimum
+
+(a)  Write a loop that finds and prints the largest number in this list: [34, 78, 12, 90, 45, 67].  [1 mark]
+(b)  Create a trace table for the first 4 iterations using the list above.  [1 mark]
+(c)  Extend this task to find the minimum at the same time. Write the combined code.  [1 mark]
+ 
+

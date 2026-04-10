@@ -1,0 +1,15 @@
+(a)  Explain the difference between a for loop and a while loop. 
+Give one example from the problems before this task where each is most appropriate, and explain why.  [2 marks]
+
+(b)  For a nested loop where the outer runs N times and the inner runs N times, how many total iterations happen? 
+Draw a small table for N = 1, 2, 3, 4, 5. What is the pattern?  [1 mark]
+N	|Outer loop runs|Inner loop runs (each outer)|Total iterations
+
+(c)  Look at the pyramid in PS-11 and the diamond in PS-12. Explain what the outer loop controls and what each inner loop controls. 
+Why are two separate inner loops needed for the diamond?  [2 marks]
+
+(d)  You have learned about for loops, while loops, and nested loops. 
+Describe a real-life situation (not from this assignment) where you would use a nested loop to solve a problem.
+Explain your answer in 4–5 sentences.  [1 mark]
+
+

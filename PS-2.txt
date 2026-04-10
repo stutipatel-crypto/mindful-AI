@@ -1,0 +1,10 @@
+Create the trace table for the following loop. Use N = 4. (3 Marks )
+ 
+total = 0
+for i in range(1, N+1):
+    total = total + i
+    print(i, total)
+
+i	| total (before)|	total  (after)|	Printed output
+
+What is the final value of total when N = 4? Write it here and explain in one sentence why this makes sense (2 Marks)

@@ -1,0 +1,18 @@
+Full Diamond (Hollow)
+
+A hollow diamond is two hollow triangles joined together. 
+Top half: rows 1 to N. Bottom half: rows N-1 down to 1. Only print stars on the border of each row.
+
+For N = 4:
+   *
+  * *
+ *   *
+*     *
+ *   *
+  * *
+   *
+
+(a)  How many rows does the full diamond have for a given N? Write the formula.  [1 mark]
+(b)  For the top half, what is printed at the start, interior, and end of each row? Write it as a rule.  [1 mark]
+(c)  Write the complete code for the full hollow diamond.  [2 marks]
+ 

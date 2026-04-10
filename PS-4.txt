@@ -1,0 +1,6 @@
+Sum and Product with Loops	[3 marks]
+Using your seed value N, write programs for each part below.
+
+(a)  Write a loop that calculates the sum of all numbers from 1 to N. Print the result.  [2 marks]
+(b)  Write a loop that calculates N factorial (N!).  Example: 5! = 1 × 2 × 3 × 4 × 5 = 120.  [3 marks]
+(c)  For N = 5, predict the output of both programs before running. Write your predictions.  [1 mark]

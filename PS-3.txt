@@ -1,0 +1,10 @@
+The while Loop	[3 marks]
+
+A for loop knows in advance how many times to run. A while loop keeps going as long as a condition is true.
+Write a while loop that prints all numbers from 1 to N. You must use a separate counter variable.
+
+(a)  Write the while loop.  [2 marks]
+(b)  Create the trace table for N = 3.  [2 marks]
+counter|	Condition  (counter <= N)|	Printed|	counter after += 1|
+(c)  What happens if you forget to write  counter += 1  inside the loop? Explain in one sentence.  [1 mark]
+(d)  Rewrite the same loop using for instead of while. Which version feels more natural here, and why?  [1 mark]

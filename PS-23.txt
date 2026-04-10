@@ -1,0 +1,16 @@
+Checkerboard Pattern
+
+A checkerboard pattern alternates between two characters in a grid. Cell at row r and column c prints
+'X' if (r + c) is even, and '.' if (r + c) is odd.
+
+For N = 6:
+X.X.X.
+.X.X.X
+X.X.X.
+.X.X.X
+X.X.X.
+.X.X.X
+
+(a)  Write the condition that decides whether to print 'X' or '.'.  [1 mark]
+(b)  Write the complete nested loop code for an N x N checkerboard.  [3 marks]
+(c)  Modify your code so that the border cells are always '*' and only the interior uses the checkerboard rule.  [2 marks]

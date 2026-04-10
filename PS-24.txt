@@ -1,0 +1,12 @@
+A prime number is only divisible by 1 and itself. You can find all primes up to a limit by checking each number with a loop.
+
+Do NOT use any library functions. Use a nested loop: 
+the outer loop tests each candidate number, the inner loop checks whether it has any divisors.
+
+(a)  Write a function  is_prime(n)  that returns True if n is prime, using a loop to test divisors from 2 up to n-1.  [3 marks]
+(b)  Use your function inside another loop to print all prime numbers from 2 to 2N.  [2 marks]
+c)  create the trace table for  is_prime(7). Show each divisor tested and the result.  [2 marks]
+n|	Divisor tested (d)|	n % d == 0?|	Decision
+
+(d)  What small improvement could you make to the inner loop to test fewer divisors? (Hint: you do not need to check all the way to n-1.) 
+Write the improved loop header.  [1 mark]

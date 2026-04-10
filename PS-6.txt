@@ -1,0 +1,15 @@
+Introducing Nested Loops — Solid Rectangle
+
+This is the simplest nested loop pattern. Study the code and answer the questions.
+
+for i in range(1, 4):      
+    for j in range(1, 5):   
+        print('*', end='')
+    print()                   
+
+(a) What pattern does this code print? Draw (Explain with flowchart)
+(b)  How many times in total does  print('*', end='')  execute? Show the working.  [1 mark]
+(c)  Rewrite the code so it prints a solid rectangle of N rows and 2N columns.  [2 marks]
+(d)  Trace the first 3 complete rows. Use the table — show both outer and inner loop variables.  [2 marks]
+
+

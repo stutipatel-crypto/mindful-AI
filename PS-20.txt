@@ -1,0 +1,22 @@
+Multiplication Grid
+
+
+Use nested loops to print a formatted N x N multiplication grid. 
+Each value must be right-aligned in a field of 4 characters. Include a header row and a divider line.
+
+For N = 5:
+      1    2    3    4    5
+  +------------------------
+1 |    1    2    3    4    5
+2 |    2    4    6    8   10
+3 |    3    6    9   12   15
+4 |    4    8   12   16   20
+5 |    5   10   15   20   25
+
+(a)  Write the code to print the header row (the top number line) using a loop.  [1 mark]
+
+(b)  Write the complete nested loop to print the full grid with row labels and dividers.  [2 marks]
+
+(c)  How many total multiplication operations does your nested loop perform for a given N? Express this as a formula and verify it for N = 3.  [1 mark]
+ 
+

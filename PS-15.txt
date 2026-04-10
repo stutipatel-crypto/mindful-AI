@@ -1,0 +1,42 @@
+Debug the Code
+
+Bug-A
+
+i = 1
+while i < 10:
+    print(i)
+    i = i        
+
+(i)   What is the bug and what does it cause?
+
+(ii)  What was this loop supposed to print?
+
+(iii) Write the corrected line.
+
+Bug-B
+
+for i in range(1, N):          
+    for j in range(1, i):      
+        print('*', end='')
+    print()
+
+(i)   If N = 5, what does this actually print? Draw it.
+(ii)  Fix BOTH bugs. Write the corrected loop headers.
+
+Bug-C
+
+for i in range(1, N+1):
+    for j in range(1, N+1):   
+        print('*', end='')
+    print()
+(i)   What pattern does this print instead of the intended triangle?
+(ii)  Fix the inner loop. Write the corrected line and explain why the inner loop must reference i.
+
+Bug-D
+
+for i in range(1, N+1):
+    for j in range(1, i+1):
+        print('*', end='')
+(i)   What does the output look like without the print() after the inner loop?
+(ii)  Add the missing line and explain what print() with no arguments does.
+(iii) Why is this print() placed outside the inner loop but inside the outer loop?

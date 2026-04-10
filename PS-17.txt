@@ -1,0 +1,15 @@
+Looping Through a List
+
+A list is a collection of values. A loop can visit each item one by one. Study this example:
+
+scores = [45, 72, 88, 60, 95]
+for score in scores:
+    print(score)
+
+(a)  What does this loop print? Write all 5 lines of output.  [1 mark]
+(b)  Modify the loop to also print whether each score is a PASS (60 or above) or FAIL (below 60).  [1 mark]
+(c)  Add a counter variable to the loop. After the loop ends, print how many scores were a PASS.  [1 mark]
+(d)  Without using the built-in sum() function, use a loop to find and print the total of all scores in the list.  [1 mark]
+ 
+
+ 

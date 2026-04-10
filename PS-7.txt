@@ -1,0 +1,15 @@
+Right-Angle Triangle
+
+In this pattern, the number of stars on each row increases. Row 1 has 1 star, row 2 has 2 stars, and so on up to row N.
+
+For N = 5:
+*
+**
+***
+****
+*****
+
+(a)  What is the key difference between this loop and the rectangle in PS-5? 
+Explain how the inner loop range changes each row.  [2 marks]
+(b)  Write the nested loop code.  [2 marks]
+(c)  Create the trace table for N of your choice.  [2 marks]

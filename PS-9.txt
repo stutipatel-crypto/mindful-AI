@@ -1,0 +1,15 @@
+Instead of printing stars, we now print numbers. 
+These patterns sharpen your understanding of what value the loop variable holds at each step.
+
+(a)  Row Counting Staircase — Row i prints numbers 1 through i.  [1 mark]
+Write the code:
+
+
+(b)  Row Value Staircase — Row i prints the same number i, repeated i times.  [1 mark]
+Write the code:
+
+(c) Descending Row — Row i prints numbers i down to 1.  [1 mark]
+
+Write the code:
+
+(d)  For parts (a) and (b), what is the same about the code and what is different? Answer in 2–3 sentences.  [1 mark]

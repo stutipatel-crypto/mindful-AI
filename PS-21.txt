@@ -1,0 +1,19 @@
+break and continue
+
+Two special keywords change how loops behave:  break  stops the loop immediately.  
+continue  skips the rest of the current iteration and moves to the next.
+
+(a)  Predict the output of this code. Write it without running.  [1 mark]
+
+for i in range(1, 10):
+    if i == 5:
+        break
+    print(i)
+
+(b)  Now predict the output of this version (break changed to continue).  [1 mark]
+
+(c)  Explain in one sentence the difference between what break and continue do to the loop.  [1 mark]
+ 
+(d)  Write a loop that searches a list of numbers for the first value greater than 50. Use break to stop as soon as it is found. 
+Print the value and which position it was found at.  [1 mark]
+

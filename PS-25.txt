@@ -1,0 +1,12 @@
+This is the final challenge. 
+You will design and produce a composite pattern entirely on your own, using everything you have learned.
+
+Produce each of the three parts below for your seed value N. 
+All parts must use loops — no hardcoded strings, no string repetition tricks.
+
+(a)  Number Border Frame — 
+Print an N x N grid where every border cell shows the row number and every interior cell is a dot.  [2 mark]
+
+(b)  Cross Pattern — Print an N x N grid 
+where the middle row and middle column are filled with '*' and all other cells are spaces. N must be odd.  [2 marks]
+
