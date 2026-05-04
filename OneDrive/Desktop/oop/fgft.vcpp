@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+class Student
+{
+public:
+    int roll;
+
+    void setRoll()
+    {
+        cout << "Enter Roll Number: ";
+        cin >> roll;
+    }
+};
+
+class Test : public Student
+{
+public:
+    int m1, m2, m3, m4, m5;
+
+    void setMarks()
+    {
+        cout << "Enter marks of 5 subjects: ";
+        cin >> m1 >> m2 >> m3 >> m4 >> m5;
+    }
+};
+
+class Result : public Test
+{
+public:
+    void Display()
+    {
+        int total = m1 + m2 + m3 + m4 + m5;
+        float average = total / 5.0;
+
+        cout << "Roll Number: " << roll << endl;
+        cout << "Total Marks: " << total << endl;
+        cout << "Average Marks: " << average << endl;
+    }
+};
+
+int main()
+{
+    Result obj;
+
+    obj.setRoll();
+    obj.setMarks();
+    obj.Display();
+
+    return 0;
+}
