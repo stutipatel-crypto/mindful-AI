@@ -1,0 +1,222 @@
+{
+  "emergency_helplines": [
+    {
+      "name": "iCall (India)",
+      "number": "9152987821",
+      "available": "Mon–Sat, 8am–10pm",
+      "website": "https://icallhelpline.org",
+      "region": "India"
+    },
+    {
+      "name": "Vandrevala Foundation Helpline",
+      "number": "1860-2662-345",
+      "available": "24/7",
+      "website": "https://www.vandrevalafoundation.com",
+      "region": "India"
+    },
+    {
+      "name": "NIMHANS Mental Health Helpline",
+      "number": "080-46110007",
+      "available": "24/7",
+      "website": "https://nimhans.ac.in",
+      "region": "India"
+    },
+    {
+      "name": "Snehi NGO",
+      "number": "044-24640050",
+      "available": "24/7",
+      "website": "https://snehi.org",
+      "region": "India"
+    },
+    {
+      "name": "988 Suicide & Crisis Lifeline (USA)",
+      "number": "988",
+      "available": "24/7",
+      "website": "https://988lifeline.org",
+      "region": "USA"
+    },
+    {
+      "name": "Samaritans UK",
+      "number": "116 123",
+      "available": "24/7",
+      "website": "https://www.samaritans.org",
+      "region": "UK"
+    },
+    {
+      "name": "Crisis Text Line",
+      "number": "Text HOME to 741741",
+      "available": "24/7",
+      "website": "https://www.crisistextline.org",
+      "region": "USA/UK/Canada/Ireland"
+    },
+    {
+      "name": "Befrienders Worldwide",
+      "number": "International directory",
+      "available": "24/7",
+      "website": "https://www.befrienders.org",
+      "region": "Worldwide"
+    }
+  ],
+  "self_care_activities": {
+    "low_risk": [
+      "Take a 10-minute mindful walk in nature",
+      "Write 3 things you are grateful for today",
+      "Do 5 minutes of deep belly breathing",
+      "Listen to calming music for 15 minutes",
+      "Drink a warm cup of herbal tea mindfully",
+      "Stretch your body gently for 10 minutes",
+      "Call or text a friend you trust",
+      "Read an uplifting book or article for 20 minutes",
+      "Create a simple to-do list to reduce mental clutter",
+      "Spend 5 minutes in sunlight"
+    ],
+    "moderate_risk": [
+      "Practice guided box breathing (4-4-4-4 pattern) for 10 minutes",
+      "Journal your thoughts and feelings without judgment",
+      "Do a 20-minute gentle yoga session",
+      "Reach out to a trusted friend or family member",
+      "Try a progressive muscle relaxation exercise",
+      "Watch a comforting show or movie",
+      "Take a warm shower and practice self-compassion",
+      "Engage in a creative hobby for 30 minutes",
+      "Practice the 5-4-3-2-1 grounding technique",
+      "Schedule a call with a counselor or therapist"
+    ],
+    "high_risk": [
+      "Please call a crisis helpline immediately — you are not alone",
+      "Reach out to a trusted family member or friend right now",
+      "Go to the nearest hospital or emergency room if in immediate danger",
+      "Text a crisis line (e.g., Text HOME to 741741)",
+      "Ask someone to stay with you",
+      "Remove access to means of self-harm if possible",
+      "Focus on breathing slowly — 4 counts in, hold 4, out 4",
+      "Repeat: 'This feeling is temporary. I will get through this.'",
+      "Contact a mental health professional today"
+    ]
+  },
+  "breathing_techniques": [
+    {
+      "name": "Box Breathing",
+      "description": "Inhale for 4 counts, hold for 4, exhale for 4, hold for 4. Repeat 4–6 times.",
+      "best_for": "Anxiety, panic, stress"
+    },
+    {
+      "name": "4-7-8 Breathing",
+      "description": "Inhale for 4 counts, hold for 7, exhale slowly for 8 counts.",
+      "best_for": "Sleep issues, anxiety, calming the nervous system"
+    },
+    {
+      "name": "Belly Breathing",
+      "description": "Place one hand on chest and one on belly. Breathe deeply so only your belly rises. Exhale slowly.",
+      "best_for": "General stress, beginners"
+    },
+    {
+      "name": "Alternate Nostril Breathing (Nadi Shodhana)",
+      "description": "Close right nostril, inhale left. Close left, exhale right. Inhale right. Close right, exhale left. Repeat.",
+      "best_for": "Balancing energy, focus, anxiety"
+    },
+    {
+      "name": "Pursed Lip Breathing",
+      "description": "Inhale through nose for 2 counts, exhale through pursed lips for 4 counts.",
+      "best_for": "Slowing breath, reducing shortness of breath"
+    }
+  ],
+  "mindfulness_exercises": [
+    {
+      "name": "5-4-3-2-1 Grounding",
+      "description": "Name 5 things you see, 4 you can touch, 3 you hear, 2 you smell, 1 you taste. This brings you back to the present moment.",
+      "duration": "3–5 minutes"
+    },
+    {
+      "name": "Body Scan Meditation",
+      "description": "Lie down, close your eyes. Slowly bring attention from toes to head, noticing sensations without judgment.",
+      "duration": "10–20 minutes"
+    },
+    {
+      "name": "Mindful Eating",
+      "description": "Eat one meal slowly, savoring each bite. Notice flavors, textures, and aromas. Eat without distractions.",
+      "duration": "15–30 minutes"
+    },
+    {
+      "name": "Loving-Kindness Meditation",
+      "description": "Silently repeat: 'May I be happy. May I be healthy. May I be at peace.' Then extend these wishes to others.",
+      "duration": "5–10 minutes"
+    },
+    {
+      "name": "Mindful Walking",
+      "description": "Walk slowly, focusing on each step, your breath, and your surroundings. Leave your phone behind.",
+      "duration": "10–20 minutes"
+    }
+  ],
+  "sleep_improvement_tips": [
+    "Keep a consistent sleep schedule — wake up and go to bed at the same time daily",
+    "Avoid screens (phones, TV) 1 hour before bed",
+    "Keep your bedroom cool, dark, and quiet",
+    "Avoid caffeine after 2 PM",
+    "Try a relaxing pre-sleep routine: warm bath, light reading, or gentle stretches",
+    "Avoid large meals within 2 hours of bedtime",
+    "Use the 4-7-8 breathing technique when lying down",
+    "Write down worries in a journal before bed to 'offload' them",
+    "Practice progressive muscle relaxation starting from your toes"
+  ],
+  "mental_health_facts": [
+    "1 in 4 people worldwide will experience a mental health issue at some point in their lives.",
+    "Depression is one of the leading causes of disability globally, affecting over 280 million people.",
+    "Anxiety disorders are the most common mental health conditions, affecting around 4% of the global population.",
+    "Mental health conditions are treatable — 70–80% of people with depression respond positively to treatment.",
+    "Sleep and mental health are deeply connected; poor sleep worsens anxiety and depression.",
+    "Regular physical activity can reduce symptoms of anxiety and depression by up to 30%.",
+    "Social connection is one of the most powerful protectors of mental health.",
+    "Seeking help is a sign of strength, not weakness.",
+    "Mindfulness practices have been shown to reduce stress, anxiety, and depression.",
+    "Early intervention in mental health issues leads to significantly better outcomes."
+  ],
+  "positive_affirmations": [
+    "You are worthy of love and belonging — exactly as you are.",
+    "Every small step forward matters, even when it doesn't feel that way.",
+    "It is okay to not be okay. You don't have to have it all together.",
+    "You have survived every difficult day so far — that is remarkable strength.",
+    "Your feelings are valid. You deserve to be heard.",
+    "Healing is not linear. Be gentle with yourself today.",
+    "You matter more than you know to the people in your life.",
+    "This moment will pass. You have the strength to get through it.",
+    "Asking for help is one of the bravest things you can do.",
+    "You are doing better than you think.",
+    "Your mental health deserves the same care and attention as your physical health.",
+    "Today, choose one kind act for yourself — you deserve it.",
+    "Even on your hardest days, you are enough.",
+    "Progress, not perfection. One moment at a time.",
+    "You are not alone in this journey."
+  ],
+  "wellness_tips": [
+    "Move your body for at least 20 minutes today — a walk counts.",
+    "Drink at least 8 glasses of water today for better mood and focus.",
+    "Connect with one person you trust today, even just a short message.",
+    "Step outside for some sunlight — even 10 minutes improves mood.",
+    "Limit social media to 30 minutes today to reduce comparison and anxiety.",
+    "Practice one act of gratitude — write down what you appreciate.",
+    "Take three deep breaths before responding to anything stressful.",
+    "Eat a nourishing meal and notice how food affects your mood.",
+    "Set one realistic, achievable goal for today and celebrate completing it.",
+    "Get 7–9 hours of sleep — it is the foundation of mental resilience."
+  ],
+  "risk_keywords": {
+    "high": [
+      "kill myself", "end my life", "suicide", "want to die", "don't want to live",
+      "no reason to live", "better off dead", "planning to hurt myself", "self harm",
+      "cut myself", "overdose", "can't go on", "ending it all", "goodbye forever",
+      "nobody would miss me", "worthless", "hopeless", "no way out", "give up on life"
+    ],
+    "moderate": [
+      "really struggling", "can't cope", "feel empty", "numb", "exhausted mentally",
+      "anxiety attack", "breakdown", "feeling trapped", "no hope", "very depressed",
+      "can't sleep for weeks", "panic attack", "feeling helpless", "nobody understands",
+      "crying all the time", "don't care anymore", "feeling lost", "spiraling"
+    ],
+    "low": [
+      "stressed", "anxious", "sad", "worried", "overwhelmed", "tired", "low mood",
+      "feeling down", "having a hard time", "difficult day", "not feeling great",
+      "bit depressed", "nervous", "frustrated", "lonely", "unmotivated"
+    ]
+  }
+}

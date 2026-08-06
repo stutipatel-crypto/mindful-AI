@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MindfulAI — Mental Health & Wellness Companion</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Font Awesome 6 -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════════════════ NAVBAR ═══════════════════════════════ -->
+<nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+  <div class="container-fluid px-3 px-lg-4">
+    <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+      <span class="brand-icon">🧠</span>
+      <span class="brand-text">MindfulAI</span>
+      <span class="badge-powered">IBM Granite</span>
+    </a>
+    <div class="d-flex align-items-center gap-2 ms-auto">
+      <button class="btn btn-icon" id="themeToggle" title="Toggle dark mode">
+        <i class="fa-solid fa-moon" id="themeIcon"></i>
+      </button>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <i class="fa-solid fa-bars fs-5"></i>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-1 mt-3 mt-lg-0">
+        <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('dashboard')"><i class="fa-solid fa-gauge me-1"></i>Dashboard</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('chat')"><i class="fa-solid fa-comment-dots me-1"></i>Chat</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('mood')"><i class="fa-solid fa-heart-pulse me-1"></i>Mood</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('journal')"><i class="fa-solid fa-book-open me-1"></i>Journal</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('resources')"><i class="fa-solid fa-leaf me-1"></i>Resources</a></li>
+        <li class="nav-item"><a class="nav-link" href="#" onclick="switchTab('emergency')"><i class="fa-solid fa-phone-volume me-1"></i>Emergency</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════ DISCLAIMER BANNER ════════════════════════ -->
+<div class="disclaimer-banner">
+  <div class="container-fluid px-3 px-lg-4 d-flex align-items-center gap-2 flex-wrap">
+    <i class="fa-solid fa-shield-heart"></i>
+    <span><strong>Disclaimer:</strong> MindfulAI is an AI companion for emotional support and awareness only. It is <strong>not</strong> a substitute for professional medical advice. If you are in crisis, please call a helpline immediately.</span>
+    <a href="#" onclick="switchTab('emergency')" class="ms-auto disclaimer-link">Emergency Help →</a>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════ HERO ════════════════════════════════ -->
+<section class="hero-section" id="heroSection">
+  <div class="container text-center">
+    <div class="hero-badge mb-3"><i class="fa-solid fa-brain me-1"></i>Powered by IBM Watsonx.ai &amp; Granite</div>
+    <div class="hero-emoji mb-3">🧠</div>
+    <h1 class="hero-title">Your Safe Space for Mental Wellness</h1>
+    <p class="hero-sub">AI-powered emotional support · Mood tracking · Crisis awareness · Evidence-based self-care</p>
+    <div class="hero-stats d-flex justify-content-center flex-wrap gap-3 mt-4 mb-4">
+      <div class="stat-card"><span class="stat-num"><i class="fa-solid fa-shield-heart"></i></span><span class="stat-label">Safe &amp; Private</span></div>
+      <div class="stat-card"><span class="stat-num">RAG</span><span class="stat-label">AI Powered</span></div>
+      <div class="stat-card"><span class="stat-num">24/7</span><span class="stat-label">Always Here</span></div>
+      <div class="stat-card"><span class="stat-num"><i class="fa-solid fa-heart"></i></span><span class="stat-label">Empathetic</span></div>
+    </div>
+    <div class="d-flex justify-content-center gap-3 flex-wrap">
+      <button class="btn btn-hero" onclick="enterApp('chat')">
+        <i class="fa-solid fa-comment-dots me-2"></i>Start Talking
+      </button>
+      <button class="btn btn-hero-outline" onclick="enterApp('dashboard')">
+        <i class="fa-solid fa-gauge me-2"></i>View Dashboard
+      </button>
+    </div>
+    <p class="hero-disclaimer mt-4"><i class="fa-solid fa-circle-info me-1"></i>Not a substitute for professional medical advice.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════ MAIN APP ════════════════════════════ -->
+<main class="app-main container-fluid px-2 px-md-4 py-4" id="appMain" style="display:none">
+
+  <!-- ─── TAB NAV (pill bar) ─── -->
+  <div class="tab-pill-bar d-flex gap-2 flex-wrap mb-4" id="tabPillBar">
+    <button class="tab-pill" onclick="switchTab('dashboard')" data-tab="dashboard"><i class="fa-solid fa-gauge"></i> Dashboard</button>
+    <button class="tab-pill active" onclick="switchTab('chat')" data-tab="chat"><i class="fa-solid fa-comment-dots"></i> Chat</button>
+    <button class="tab-pill" onclick="switchTab('mood')" data-tab="mood"><i class="fa-solid fa-heart-pulse"></i> Mood</button>
+    <button class="tab-pill" onclick="switchTab('journal')" data-tab="journal"><i class="fa-solid fa-book-open"></i> Journal</button>
+    <button class="tab-pill" onclick="switchTab('resources')" data-tab="resources"><i class="fa-solid fa-leaf"></i> Resources</button>
+    <button class="tab-pill tab-pill-emergency" onclick="switchTab('emergency')" data-tab="emergency"><i class="fa-solid fa-phone-volume"></i> Emergency</button>
+  </div>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       TAB: DASHBOARD
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="tab-section" id="tab-dashboard">
+    <!-- Daily Affirmation Banner -->
+    <div class="affirmation-banner card mb-4 p-3" id="affirmationBanner">
+      <div class="d-flex align-items-center gap-3">
+        <span class="affirmation-icon">✨</span>
+        <div>
+          <div class="affirmation-label">Today's Affirmation</div>
+          <div class="affirmation-text" id="affirmationText">Loading...</div>
+        </div>
+        <button class="btn btn-xs ms-auto" onclick="refreshAffirmation()" title="New affirmation">
+          <i class="fa-solid fa-rotate"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Metric cards row -->
+    <div class="row g-3 mb-4">
+      <div class="col-6 col-md-3">
+        <div class="metric-card card">
+          <div class="metric-icon wellness-icon"><i class="fa-solid fa-heart-circle-check"></i></div>
+          <div class="metric-value" id="dashWellnessScore">50</div>
+          <div class="metric-label">Wellness Score</div>
+          <div class="metric-bar"><div class="metric-bar-fill wellness-fill" id="dashWellnessBar" style="width:50%"></div></div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="metric-card card">
+          <div class="metric-icon stress-icon"><i class="fa-solid fa-brain"></i></div>
+          <div class="metric-value" id="dashStressLevel">Moderate</div>
+          <div class="metric-label">Stress Level</div>
+          <div class="stress-indicator" id="dashStressIndicator"></div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="metric-card card">
+          <div class="metric-icon streak-icon"><i class="fa-solid fa-fire"></i></div>
+          <div class="metric-value" id="dashStreak">0</div>
+          <div class="metric-label">Positive Streak</div>
+          <div class="metric-sub">consecutive good days</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="metric-card card">
+          <div class="metric-icon log-icon"><i class="fa-solid fa-calendar-check"></i></div>
+          <div class="metric-value" id="dashMoodLogs">0</div>
+          <div class="metric-label">Mood Logs</div>
+          <div class="metric-sub">total entries</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Charts row -->
+    <div class="row g-4 mb-4">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title-custom"><i class="fa-solid fa-chart-line me-2"></i>Weekly Emotional Trend</span>
+          </div>
+          <div class="card-body">
+            <div class="chart-container">
+              <canvas id="weeklyTrendChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card h-100">
+          <div class="card-header">
+            <span class="card-title-custom"><i class="fa-solid fa-chart-pie me-2"></i>Mood Distribution</span>
+          </div>
+          <div class="card-body d-flex align-items-center justify-content-center">
+            <div class="chart-container-sm">
+              <canvas id="moodDistChart"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mood history timeline + wellness tip -->
+    <div class="row g-4">
+      <div class="col-lg-8">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <span class="card-title-custom"><i class="fa-solid fa-timeline me-2"></i>Mood History Timeline</span>
+            <button class="btn btn-xs btn-outline-secondary" onclick="switchTab('mood')">Log Mood +</button>
+          </div>
+          <div class="card-body p-0">
+            <div id="moodTimeline" class="mood-timeline p-3">
+              <div class="text-center text-muted py-4">
+                <i class="fa-solid fa-heart-pulse fa-2x mb-2 opacity-50"></i>
+                <p class="mb-0">Start logging your moods to see your timeline</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title-custom"><i class="fa-solid fa-seedling me-2"></i>Today's Wellness Tip</span>
+          </div>
+          <div class="card-body">
+            <div class="wellness-tip-box" id="wellnessTipBox">
+              <i class="fa-solid fa-leaf wellness-tip-icon"></i>
+              <p id="wellnessTipText" class="mb-0 mt-2">Loading your wellness tip...</p>
+            </div>
+            <div class="self-care-progress mt-3">
+              <div class="d-flex justify-content-between mb-1">
+                <span class="small fw-semibold">Self-Care Progress</span>
+                <span class="small text-muted" id="selfCareCount">0 / 3 today</span>
+              </div>
+              <div class="progress" style="height:8px">
+                <div class="progress-bar self-care-bar" id="selfCareBar" style="width:0%"></div>
+              </div>
+            </div>
+            <div class="mt-3 d-flex flex-wrap gap-2" id="selfCareChecks">
+              <button class="self-care-check" onclick="toggleSelfCare(this,'mindfulness')"><i class="fa-solid fa-spa me-1"></i>Mindfulness</button>
+              <button class="self-care-check" onclick="toggleSelfCare(this,'exercise')"><i class="fa-solid fa-person-walking me-1"></i>Exercise</button>
+              <button class="self-care-check" onclick="toggleSelfCare(this,'journal')"><i class="fa-solid fa-pen me-1"></i>Journal</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       TAB: CHAT
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="tab-section active" id="tab-chat">
+    <div class="row g-4">
+      <div class="col-lg-8 col-xl-9">
+        <div class="card chat-card">
+          <!-- Chat Header -->
+          <div class="card-header chat-header d-flex align-items-center gap-3">
+            <div class="bot-avatar"><span>🧠</span></div>
+            <div>
+              <div class="fw-semibold">MindfulAI</div>
+              <div class="text-muted small d-flex align-items-center gap-1">
+                <span class="status-dot"></span> Compassionate AI Companion
+              </div>
+            </div>
+            <div class="ms-auto d-flex gap-2 align-items-center">
+              <span class="risk-badge d-none" id="chatRiskBadge">Low Risk</span>
+              <button class="btn btn-xs btn-outline-secondary" onclick="clearChat()" title="Clear chat">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+              <button class="btn btn-xs btn-outline-secondary" onclick="exportChat()" title="Export chat">
+                <i class="fa-solid fa-download"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- Messages -->
+          <div class="chat-messages" id="chatMessages"></div>
+
+          <!-- High-risk emergency panel (hidden by default) -->
+          <div class="emergency-inline d-none" id="emergencyInline">
+            <div class="d-flex align-items-center gap-2 mb-2">
+              <i class="fa-solid fa-circle-exclamation text-danger"></i>
+              <strong class="text-danger">You may need immediate support</strong>
+            </div>
+            <div class="d-flex flex-wrap gap-2">
+              <a href="tel:9152987821" class="btn-helpline"><i class="fa-solid fa-phone me-1"></i>iCall: 9152987821</a>
+              <a href="tel:988" class="btn-helpline"><i class="fa-solid fa-phone me-1"></i>988 Lifeline (USA)</a>
+              <a href="sms:741741?body=HOME" class="btn-helpline btn-helpline-sms"><i class="fa-solid fa-comment me-1"></i>Text HOME to 741741</a>
+            </div>
+          </div>
+
+          <!-- Quick prompts -->
+          <div class="quick-prompts px-3 pb-2" id="quickPrompts">
+            <div class="d-flex gap-2 flex-wrap">
+              <button class="chip" onclick="sendQuick('I\'m feeling really anxious today and can\'t calm down')">😰 Feeling Anxious</button>
+              <button class="chip" onclick="sendQuick('I have been feeling very sad and low for the past few days')">😔 Feeling Sad</button>
+              <button class="chip" onclick="sendQuick('I need help managing stress at work')">😓 Stressed</button>
+              <button class="chip" onclick="sendQuick('Can you teach me a breathing exercise for anxiety?')">🌬️ Breathing</button>
+              <button class="chip" onclick="sendQuick('I can\'t sleep at night, my mind won\'t stop racing')">😴 Can\'t Sleep</button>
+              <button class="chip" onclick="sendQuick('Give me a positive affirmation for today')">✨ Affirmation</button>
+            </div>
+          </div>
+
+          <!-- Input area -->
+          <div class="chat-input-area px-3 pb-3">
+            <div class="input-group chat-input-group">
+              <textarea class="form-control chat-textarea" id="chatInput"
+                placeholder="Share how you're feeling… I'm here to listen 💙"
+                rows="1" onkeydown="handleChatKey(event)" oninput="autoResize(this)"></textarea>
+              <button class="btn btn-send" id="sendBtn" onclick="sendMessage()">
+                <i class="fa-solid fa-paper-plane"></i>
+              </button>
+            </div>
+            <div class="chat-footer-note">
+              <i class="fa-solid fa-shield-heart me-1"></i>
+              AI support only — not a substitute for professional help.
+              <a href="#" onclick="switchTab('emergency')" class="ms-2">Emergency Help</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat sidebar -->
+      <div class="col-lg-4 col-xl-3 d-none d-lg-block">
+        <div class="card mb-3">
+          <div class="card-body">
+            <h6 class="card-title-custom mb-3"><i class="fa-solid fa-brain me-2"></i>Session Insights</h6>
+            <div class="insight-row d-flex justify-content-between align-items-center mb-2">
+              <span class="small text-muted">Risk Level</span>
+              <span class="risk-pill" id="sidebarRisk">—</span>
+            </div>
+            <div class="insight-row d-flex justify-content-between align-items-center mb-2">
+              <span class="small text-muted">Messages</span>
+              <span class="fw-semibold" id="sidebarMsgCount">0</span>
+            </div>
+            <div class="insight-row d-flex justify-content-between align-items-center">
+              <span class="small text-muted">AI Model</span>
+              <span class="small text-muted model-tag">IBM Granite</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="card mb-3">
+          <div class="card-body">
+            <h6 class="card-title-custom mb-3"><i class="fa-solid fa-spa me-2"></i>Quick Self-Care</h6>
+            <div class="d-flex flex-column gap-2">
+              <button class="btn btn-resource" onclick="sendQuick('Guide me through a 5-minute box breathing exercise')"><i class="fa-solid fa-wind me-2"></i>Box Breathing</button>
+              <button class="btn btn-resource" onclick="sendQuick('Take me through the 5-4-3-2-1 grounding technique')"><i class="fa-solid fa-compass me-2"></i>Grounding</button>
+              <button class="btn btn-resource" onclick="sendQuick('I need a quick mindfulness exercise right now')"><i class="fa-solid fa-circle me-2"></i>Mindfulness</button>
+              <button class="btn btn-resource" onclick="sendQuick('Give me tips to improve my sleep tonight')"><i class="fa-solid fa-moon me-2"></i>Sleep Tips</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-body">
+            <h6 class="card-title-custom mb-2"><i class="fa-solid fa-quote-left me-2"></i>Affirmation</h6>
+            <p class="affirmation-sidebar" id="sidebarAffirmation">Loading...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       TAB: MOOD TRACKER
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="tab-section" id="tab-mood">
+    <div class="row g-4">
+      <div class="col-md-5">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title-custom mb-4"><i class="fa-solid fa-heart-pulse me-2"></i>How are you feeling today?</h5>
+
+            <div class="mood-selector mb-4">
+              <button class="mood-btn" data-mood="😄 Great" onclick="selectMood(this)">
+                <span class="mood-emoji">😄</span>
+                <span class="mood-label">Great</span>
+              </button>
+              <button class="mood-btn" data-mood="🙂 Good" onclick="selectMood(this)">
+                <span class="mood-emoji">🙂</span>
+                <span class="mood-label">Good</span>
+              </button>
+              <button class="mood-btn" data-mood="😐 Neutral" onclick="selectMood(this)">
+                <span class="mood-emoji">😐</span>
+                <span class="mood-label">Neutral</span>
+              </button>
+              <button class="mood-btn" data-mood="😔 Low" onclick="selectMood(this)">
+                <span class="mood-emoji">😔</span>
+                <span class="mood-label">Low</span>
+              </button>
+              <button class="mood-btn" data-mood="😢 Struggling" onclick="selectMood(this)">
+                <span class="mood-emoji">😢</span>
+                <span class="mood-label">Struggling</span>
+              </button>
+            </div>
+
+            <div class="mb-3">
+              <label class="form-label">Add a note (optional)</label>
+              <textarea class="form-control" id="moodNote" rows="3"
+                placeholder="How are you feeling? What's on your mind?"></textarea>
+            </div>
+            <button class="btn btn-primary-custom w-100" onclick="logMood()" id="logMoodBtn" disabled>
+              <i class="fa-solid fa-plus me-2"></i>Log My Mood
+            </button>
+            <div id="moodLogSuccess" class="alert-success-mini mt-2 d-none">
+              <i class="fa-solid fa-check me-1"></i>Mood logged successfully!
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7">
+        <div class="card mb-3">
+          <div class="card-header">
+            <span class="card-title-custom"><i class="fa-solid fa-chart-simple me-2"></i>This Week's Mood Trend</span>
+          </div>
+          <div class="card-body">
+            <div class="chart-container">
+              <canvas id="moodWeekChart"></canvas>
+            </div>
+          </div>
+        </div>
+        <div class="row g-3">
+          <div class="col-4">
+            <div class="mini-metric card text-center p-3">
+              <div class="mini-metric-value wellness-color" id="moodWellnessScore">50</div>
+              <div class="mini-metric-label">Wellness</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="mini-metric card text-center p-3">
+              <div class="mini-metric-value stress-color" id="moodStressLevel">Moderate</div>
+              <div class="mini-metric-label">Stress</div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="mini-metric card text-center p-3">
+              <div class="mini-metric-value streak-color" id="moodStreak">0 🔥</div>
+              <div class="mini-metric-label">Streak</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       TAB: EMOTION JOURNAL
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="tab-section" id="tab-journal">
+    <div class="row g-4">
+      <div class="col-lg-5">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title-custom mb-4"><i class="fa-solid fa-pen-nib me-2"></i>New Journal Entry</h5>
+            <div class="mb-3">
+              <label class="form-label">Title</label>
+              <input type="text" class="form-control" id="journalTitle" placeholder="Give your entry a title…" />
+            </div>
+            <div class="mb-3">
+              <label class="form-label">How are you feeling?</label>
+              <select class="form-select" id="journalMood">
+                <option value="😄 Great">😄 Great</option>
+                <option value="🙂 Good">🙂 Good</option>
+                <option value="😐 Neutral" selected>😐 Neutral</option>
+                <option value="😔 Low">😔 Low</option>
+                <option value="😢 Struggling">😢 Struggling</option>
+              </select>
+            </div>
+            <div class="mb-4">
+              <label class="form-label">Your thoughts</label>
+              <textarea class="form-control" id="journalContent" rows="6"
+                placeholder="Write freely about your feelings, experiences, and thoughts today…"></textarea>
+            </div>
+            <button class="btn btn-primary-custom w-100" onclick="saveJournal()" id="saveJournalBtn">
+              <i class="fa-solid fa-floppy-disk me-2"></i>Save &amp; Get AI Insight
+            </button>
+            <p class="small text-muted mt-2">
+              <i class="fa-solid fa-lock me-1"></i>Your journal is private and stored locally in your session.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="card">
+          <div class="card-header d-flex justify-content-between align-items-center">
+            <span class="card-title-custom"><i class="fa-solid fa-book me-2"></i>Journal History</span>
+            <span class="small text-muted" id="journalCount">0 entries</span>
+          </div>
+          <div class="card-body p-0">
+            <div id="journalList" class="journal-list">
+              <div class="text-center text-muted py-5">
+                <i class="fa-solid fa-book-open fa-2x mb-2 opacity-50"></i>
+                <p class="mb-0">Your journal entries will appear here</p>
+                <p class="small mt-1">Writing regularly builds emotional resilience</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       TAB: SELF-CARE RESOURCES
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="tab-section" id="tab-resources">
+    <!-- Section title -->
+    <div class="resources-header mb-4">
+      <h4 class="fw-bold mb-1"><i class="fa-solid fa-leaf me-2 text-success"></i>Self-Care Resources</h4>
+      <p class="text-muted mb-0">Evidence-based techniques to support your mental wellbeing</p>
+    </div>
+
+    <!-- Category tabs -->
+    <div class="resource-tabs d-flex gap-2 flex-wrap mb-4">
+      <button class="resource-tab active" onclick="showResourceTab('breathing')"><i class="fa-solid fa-wind me-1"></i>Breathing</button>
+      <button class="resource-tab" onclick="showResourceTab('mindfulness')"><i class="fa-solid fa-spa me-1"></i>Mindfulness</button>
+      <button class="resource-tab" onclick="showResourceTab('sleep')"><i class="fa-solid fa-moon me-1"></i>Sleep</button>
+      <button class="resource-tab" onclick="showResourceTab('facts')"><i class="fa-solid fa-lightbulb me-1"></i>MH Facts</button>
+      <button class="resource-tab" onclick="showResourceTab('affirmations')"><i class="fa-solid fa-star me-1"></i>Affirmations</button>
+    </div>
+
+    <!-- Breathing Techniques -->
+    <div class="resource-content active" id="resource-breathing">
+      <div class="row g-3" id="breathingCards"></div>
+    </div>
+
+    <!-- Mindfulness -->
+    <div class="resource-content" id="resource-mindfulness">
+      <div class="row g-3" id="mindfulnessCards"></div>
+    </div>
+
+    <!-- Sleep Tips -->
+    <div class="resource-content" id="resource-sleep">
+      <div class="row g-3" id="sleepCards"></div>
+    </div>
+
+    <!-- MH Facts -->
+    <div class="resource-content" id="resource-facts">
+      <div class="row g-3" id="factsCards"></div>
+    </div>
+
+    <!-- Affirmations -->
+    <div class="resource-content" id="resource-affirmations">
+      <div class="affirmations-grid" id="affirmationsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════════════════
+       TAB: EMERGENCY SUPPORT
+  ═══════════════════════════════════════════════════════════════════════════ -->
+  <section class="tab-section" id="tab-emergency">
+    <!-- Top alert banner -->
+    <div class="emergency-hero card mb-4">
+      <div class="card-body text-center py-4">
+        <div class="emergency-hero-icon mb-3"><i class="fa-solid fa-heart-circle-exclamation"></i></div>
+        <h4 class="fw-bold mb-2">You Are Not Alone</h4>
+        <p class="text-muted mb-3">
+          If you or someone you know is in crisis, please reach out immediately. <br/>
+          Trained counselors are available 24/7 to listen, support, and help.
+        </p>
+        <a href="tel:9152987821" class="btn btn-danger-custom me-2">
+          <i class="fa-solid fa-phone me-2"></i>Call iCall Now: 9152987821
+        </a>
+        <a href="sms:741741?body=HOME" class="btn btn-sms-custom">
+          <i class="fa-solid fa-comment me-2"></i>Text HOME to 741741
+        </a>
+      </div>
+    </div>
+
+    <!-- Helpline cards -->
+    <h5 class="fw-bold mb-3"><i class="fa-solid fa-phone-volume me-2"></i>Crisis Helplines Worldwide</h5>
+    <div class="row g-3 mb-4" id="helplineCards"></div>
+
+    <!-- Safety plan section -->
+    <div class="row g-4">
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title-custom mb-3"><i class="fa-solid fa-shield-halved me-2 text-success"></i>If You're in Crisis Right Now</h5>
+            <ul class="safety-steps">
+              <li><span class="step-num">1</span> <strong>Remove yourself</strong> from immediate danger if possible</li>
+              <li><span class="step-num">2</span> <strong>Call a helpline</strong> — trained counselors are ready to listen</li>
+              <li><span class="step-num">3</span> <strong>Tell someone</strong> you trust what you are feeling</li>
+              <li><span class="step-num">4</span> <strong>Breathe slowly</strong> — inhale 4 counts, hold 4, exhale 4</li>
+              <li><span class="step-num">5</span> <strong>Go to emergency services</strong> if you are in immediate danger</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title-custom mb-3"><i class="fa-solid fa-people-group me-2 text-primary"></i>Reach Out to Trusted People</h5>
+            <p class="text-muted small mb-3">
+              Writing down the contact details of trusted people can help during a crisis.
+              You don't have to face this alone.
+            </p>
+            <div class="mb-2">
+              <input type="text" class="form-control form-control-sm mb-2" id="trustedName1" placeholder="Trusted person 1 name" />
+              <input type="tel" class="form-control form-control-sm" id="trustedPhone1" placeholder="Phone number" />
+            </div>
+            <div class="mb-3">
+              <input type="text" class="form-control form-control-sm mb-2" id="trustedName2" placeholder="Trusted person 2 name" />
+              <input type="tel" class="form-control form-control-sm" id="trustedPhone2" placeholder="Phone number" />
+            </div>
+            <button class="btn btn-primary-custom btn-sm w-100" onclick="saveTrustedContacts()">
+              <i class="fa-solid fa-floppy-disk me-1"></i>Save Contacts
+            </button>
+            <div class="trusted-contacts-saved d-none mt-2" id="trustedSaved">
+              <i class="fa-solid fa-check me-1"></i>Contacts saved
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Signs to watch for -->
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title-custom mb-3"><i class="fa-solid fa-magnifying-glass me-2 text-warning"></i>Warning Signs to Watch For</h5>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <div class="warning-block">
+              <h6 class="warning-title"><i class="fa-solid fa-face-sad-tear me-2"></i>Emotional Signs</h6>
+              <ul class="warning-list">
+                <li>Feeling hopeless or worthless</li>
+                <li>Extreme mood swings</li>
+                <li>Withdrawing from loved ones</li>
+                <li>Talking about being a burden</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="warning-block">
+              <h6 class="warning-title"><i class="fa-solid fa-person-walking-arrow-right me-2"></i>Behavioural Signs</h6>
+              <ul class="warning-list">
+                <li>Giving away possessions</li>
+                <li>Saying goodbye to people</li>
+                <li>Researching ways to self-harm</li>
+                <li>Increased substance use</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="warning-block">
+              <h6 class="warning-title"><i class="fa-solid fa-heart-crack me-2"></i>Physical Signs</h6>
+              <ul class="warning-list">
+                <li>Significant sleep changes</li>
+                <li>Neglecting self-care</li>
+                <li>Loss of appetite</li>
+                <li>Unexplained injuries</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ═════════════════════════ STATUS TOAST ════════════════════════════════════ -->
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index:9999">
+  <div id="statusToast" class="toast" role="alert">
+    <div class="toast-body d-flex align-items-center gap-2" id="toastBody">
+      <i class="fa-solid fa-circle-info"></i>
+      <span id="toastMsg">Message</span>
+    </div>
+  </div>
+</div>
+
+<!-- Loading Overlay -->
+<div id="loadingOverlay" class="loading-overlay d-none">
+  <div class="loading-content">
+    <div class="loading-spinner"></div>
+    <p class="loading-text" id="loadingText">MindfulAI is thinking…</p>
+  </div>
+</div>
+
+<!-- Journal Entry Modal (AI Insight) -->
+<div class="modal fade" id="journalInsightModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content modal-custom">
+      <div class="modal-header border-0 pb-0">
+        <h5 class="modal-title fw-bold"><i class="fa-solid fa-brain me-2"></i>AI Insight</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="journalInsightContent">
+        <!-- Filled by JS -->
+      </div>
+      <div class="modal-footer border-0 pt-0">
+        <button type="button" class="btn btn-primary-custom" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<!-- App JS -->
+<script src="/static/js/app.js"></script>
+</body>
+</html>
